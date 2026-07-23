@@ -2,7 +2,7 @@
 
 ## v0.1.0
 
-- [ ] Basic module scaffold and registration
+- [x] Basic module scaffold and registration
 - [ ] Core contract implementation
 
 ## v0.2.0
