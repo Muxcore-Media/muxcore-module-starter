@@ -31,17 +31,22 @@ Explanation.
 
 ## Configuration
 
+Core connection is resolved by the module SDK (priority: Config field → env → CLI flag → `Module.Info().ID` for module ID).
+
 ### CLI Flags
 
 | Flag | Default | Description |
 |------|---------|-------------|
-| `--flag-name` | value | Description |
+| `--muxcore-mesh-addr` | (required) | Core gRPC address (`host:port`) |
+| `--muxcore-module-id` | `Info().ID` (`your-module`) | Module identifier override |
 
 ### Environment Variables
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `YOUR_MODULE_ADDR` | `:9400` | Listen address |
+| `MUXCORE_GRPC_ADDR` | (required if no flag) | Core gRPC address (`host:port`) |
+| `MUXCORE_MODULE_ID` | `Info().ID` (`your-module`) | Module identifier override |
+| `MUXCORE_INSECURE_DISABLE_TLS` | — | Used by **core** / compose; this scaffold hardcodes `Insecure: true` in `cmd/module` |
 
 ---
 
@@ -52,8 +57,10 @@ Explanation.
 make build
 
 # Run against local core (dev mode)
-export MUXCORE_INSECURE_DISABLE_TLS=true
-./your-module --muxcore-mesh-addr localhost:9090
+# Terminal 1: MUXCORE_INSECURE_DISABLE_TLS=true ./muxcored
+# Terminal 2:
+export MUXCORE_GRPC_ADDR=localhost:9090
+./your-module
 ```
 
 ---
@@ -88,10 +95,11 @@ sudo systemctl enable --now muxcore-module
 ## Development
 
 ```bash
-make dev      # run in dev mode
+make build    # compile ./your-module
 make test     # run tests
 make lint     # golangci-lint
 make fmt      # format code
+make ci       # lint + test + build
 ```
 
 ### Integration Tests
@@ -105,9 +113,14 @@ MUXCORE_GRPC_ADDR=localhost:9090 go test -tags=integration -race -count=1 ./test
 
 ## Implementation
 
-- Registers with capabilities: `"your.capability"`
-- Implements `contracts.YourContract`
-- Uses `contracts.DatabaseProvider` for persistence
+Scaffold state (`internal/module.go`):
+
+- Module ID / name / version: `your-module` / `Your Module` / `0.1.0`
+- Roles and capabilities: empty in `Info()` (see Conflicts if `muxcore.json` differs)
+- Implements `contracts.Module` lifecycle (`Init` / `Start` / `Stop`); `Health` returns `not implemented`
+- Started via `modulesdk.Run` in `cmd/module`
+
+Replace placeholders and register capabilities/contracts as you implement the module.
 
 ---
 

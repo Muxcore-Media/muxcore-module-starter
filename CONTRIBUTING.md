@@ -23,7 +23,8 @@ cd ../core
 MUXCORE_INSECURE_DISABLE_TLS=true ./muxcored
 
 # Terminal 2: start module
-make build && ./your-module --muxcore-mesh-addr localhost:9090
+make build
+MUXCORE_GRPC_ADDR=localhost:9090 ./your-module
 ```
 
 ## Running Tests
