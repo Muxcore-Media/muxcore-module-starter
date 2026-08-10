@@ -1,5 +1,3 @@
 # Remaining work
 
-This module was generated from [muxcore-module-starter](https://github.com/Muxcore-Media/muxcore-module-starter).
-
-Track features in your repo issues — do not keep placeholder Feature X/Y checklists.
+Product checklist lives in the MuxCore workspace `TASKS.md` after you publish this module. This scaffold intentionally has no placeholder Feature X checklist.
