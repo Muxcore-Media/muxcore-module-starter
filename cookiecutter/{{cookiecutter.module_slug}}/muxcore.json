@@ -1,0 +1,9 @@
+{
+  "name": "{{ cookiecutter.module_name }}",
+  "description": "{{ cookiecutter.description }}",
+  "version": "0.1.0",
+  "author": "{{ cookiecutter.author }}",
+  "roles": ["{{ cookiecutter.role }}"],
+  "capabilities": ["{{ cookiecutter.capability }}"],
+  "contracts": []
+}
