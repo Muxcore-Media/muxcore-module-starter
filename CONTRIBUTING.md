@@ -1,11 +1,21 @@
 # Contributing to Your Module
 
+## Starting from the starter
+
+```bash
+git clone https://github.com/Muxcore-Media/muxcore-module-starter.git
+cd muxcore-module-starter
+make new-module NAME=your-module
+# or: ./scripts/new-module.sh NAME=your-module
+```
+
 ## Development Setup
 
 ### Prerequisites
 
 - Go 1.26.x
 - golangci-lint (optional but recommended)
+- `GOPRIVATE=github.com/Muxcore-Media/*` (and GitHub auth) for private core modules
 
 ### Clone and build
 
