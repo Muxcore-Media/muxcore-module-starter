@@ -1,9 +1,12 @@
-.PHONY: build test lint clean fmt tidy docker docker-push ci help
+.PHONY: build test lint clean fmt tidy docker docker-push ci new-module help
 
 GO ?= go
 VERSION ?= $(shell git describe --tags --always --dirty 2>/dev/null || echo "0.0.0-dev")
 LDFLAGS ?= -s -w -X main.version=$(VERSION)
 BINARY ?= your-module
+NAME ?=
+OUT ?=
+ORG ?= Muxcore-Media
 
 build:
 	$(GO) build -ldflags="$(LDFLAGS)" -o $(BINARY) ./cmd/module
@@ -35,6 +38,12 @@ docker-push: docker
 
 ci: lint test build
 
+# Example: make new-module NAME=my-module
+# Optional: OUT=../my-module ORG=Muxcore-Media
+new-module:
+	@test -n "$(NAME)" || (echo "NAME is required, e.g. make new-module NAME=my-module" >&2; exit 2)
+	./scripts/new-module.sh NAME=$(NAME) $(if $(OUT),OUT=$(OUT),) ORG=$(ORG)
+
 help:
 	@echo "Targets:"
 	@echo "  build       - compile the module binary"
@@ -46,3 +55,4 @@ help:
 	@echo "  docker      - build Docker image"
 	@echo "  docker-push - build and push Docker image"
 	@echo "  ci          - lint + test + build"
+	@echo "  new-module  - scaffold a module (NAME=slug required)"
