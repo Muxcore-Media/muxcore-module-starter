@@ -1,0 +1,9 @@
+{
+  "module_slug": "my-module",
+  "module_name": "My Module",
+  "github_org": "Muxcore-Media",
+  "description": "A MuxCore sidecar module.",
+  "author": "Muxcore-Media",
+  "capability": "my.capability",
+  "role": "my-role"
+}
