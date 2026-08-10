@@ -4,12 +4,18 @@
 
 ### Added
 
-- `cookiecutter/` template that emits a green CI workflow and module scaffold
-- `scripts/check-cookiecutter.sh` smoke check for generated projects
+- `make new-module NAME=…` / `scripts/new-module.sh` (cookiecutter or bash fallback)
+- Self-hosted CI and release without sibling `core` checkout (published `core@v0.5.0` + `MUXCORE_CI_TOKEN`)
 
 ### Changed
 
-- `ROADMAP.md` no longer lists placeholder Feature X/Y or “Core contract implementation” checkboxes
+- README rewritten as cookiecutter-quality starter docs (no Feature X placeholders)
+- Cookiecutter-emitted CI matches root: self-hosted, no sibling tree
+- `ROADMAP.md` points at workspace `TASKS.md`
+
+### Added (prior)
+
+- `cookiecutter/` template and `scripts/check-cookiecutter.sh`
 
 ## [0.1.0] - scaffold
 
