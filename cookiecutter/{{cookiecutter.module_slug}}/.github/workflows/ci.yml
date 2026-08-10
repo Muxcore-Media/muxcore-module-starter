@@ -1,0 +1,65 @@
+name: CI
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+env:
+  REGISTRY: ghcr.io
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: core
+          repository: Muxcore-Media/core
+          token: {% raw %}${{ secrets.MUXCORE_CI_TOKEN }}{% endraw %}
+      - uses: actions/checkout@v7
+        with:
+          path: {{ cookiecutter.module_slug }}
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: true
+      - working-directory: ./{{ cookiecutter.module_slug }}
+        run: go vet ./...
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: core
+          repository: Muxcore-Media/core
+          token: {% raw %}${{ secrets.MUXCORE_CI_TOKEN }}{% endraw %}
+      - uses: actions/checkout@v7
+        with:
+          path: {{ cookiecutter.module_slug }}
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: true
+      - working-directory: ./{{ cookiecutter.module_slug }}
+        run: go test -race -count=1 -timeout 10m ./...
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: core
+          repository: Muxcore-Media/core
+          token: {% raw %}${{ secrets.MUXCORE_CI_TOKEN }}{% endraw %}
+      - uses: actions/checkout@v7
+        with:
+          path: {{ cookiecutter.module_slug }}
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.26"
+          cache: true
+      - working-directory: ./{{ cookiecutter.module_slug }}
+        run: |
+          go build -o /dev/null ./cmd/module
+          go vet ./...
