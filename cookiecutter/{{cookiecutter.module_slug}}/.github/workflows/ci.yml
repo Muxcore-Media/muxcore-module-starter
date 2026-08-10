@@ -6,7 +6,6 @@ on:
     branches: [master, main]
 
 env:
-  REGISTRY: ghcr.io
   GOPRIVATE: github.com/Muxcore-Media/*
 
 jobs:
@@ -34,7 +33,7 @@ jobs:
       - name: Configure private modules (HTTPS)
         run: |
           git config --global url."https://x-access-token:{% raw %}${{ secrets.MUXCORE_CI_TOKEN }}{% endraw %}@github.com/".insteadOf "https://github.com/"
- - run: go test -count=1 -timeout 10m ./...
+      - run: go test -race -count=1 -timeout 10m ./...
 
   build:
     runs-on: self-hosted
