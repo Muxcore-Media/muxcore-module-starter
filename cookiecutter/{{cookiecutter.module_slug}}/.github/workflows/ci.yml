@@ -33,7 +33,8 @@ jobs:
       - name: Configure private modules (HTTPS)
         run: |
           git config --global url."https://x-access-token:{% raw %}${{ secrets.MUXCORE_CI_TOKEN }}{% endraw %}@github.com/".insteadOf "https://github.com/"
-      - run: go test -race -count=1 -timeout 10m ./...
+      # No -race: laptop self-hosted runners often lack gcc/CGO.
+      - run: go test -count=1 -timeout 10m ./...
 
   build:
     runs-on: self-hosted
