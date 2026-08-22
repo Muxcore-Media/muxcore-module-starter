@@ -1,6 +1,6 @@
 # muxcore-module-starter
 
-[![CI](https://github.com/Muxcore-Media/muxcore-module-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/Muxcore-Media/muxcore-module-starter/actions)
+[![CI](https://git.zem.systems/muxcore/muxcore-module-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/Muxcore-Media/muxcore-module-starter/actions)
 [![Go Version](https://img.shields.io/badge/Go-1.26-blue)](https://go.dev/)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 
