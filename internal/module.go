@@ -2,7 +2,6 @@ package internal
 
 import (
 	"context"
-	"fmt"
 	"log/slog"
 
 	"github.com/Muxcore-Media/core/pkg/contracts"
@@ -22,14 +21,15 @@ func NewModule() *Module {
 
 func (m *Module) Info() contracts.ModuleInfo {
 	return contracts.ModuleInfo{
-		ID:           m.id,
-		Name:         "Your Module",
-		Version:      "0.1.0",
-		Roles:        []string{},
-		Description:  "Describe what your module does.",
-		Author:       "You",
-		Capabilities: []string{},
-		DependsOn:    []string{},
+		ID:             m.id,
+		Name:           "Your Module",
+		Version:        Version,
+		Roles:          []string{"your-role"},
+		Description:    "Describe what your module does.",
+		Author:         "You",
+		Capabilities:   []string{"your.capability"},
+		DependsOn:      []string{},
+		MinCoreVersion: MinCoreVersion,
 	}
 }
 
@@ -49,5 +49,5 @@ func (m *Module) Stop(ctx context.Context) error {
 }
 
 func (m *Module) Health(ctx context.Context) error {
-	return fmt.Errorf("not implemented")
+	return nil
 }

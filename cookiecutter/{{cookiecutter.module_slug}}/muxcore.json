@@ -5,5 +5,6 @@
   "author": "{{ cookiecutter.author }}",
   "roles": ["{{ cookiecutter.role }}"],
   "capabilities": ["{{ cookiecutter.capability }}"],
-  "contracts": []
+  "contracts": [],
+  "minCoreVersion": "0.5.8"
 }
