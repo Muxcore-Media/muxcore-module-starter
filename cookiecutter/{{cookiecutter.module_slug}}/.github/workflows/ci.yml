@@ -1,3 +1,5 @@
+# Optional CI for public GitHub mirror consumers (MUXCORE_CI_TOKEN).
+# Origin install path: Forgejo at git.zem.systems/muxcore — see .forgejo/workflows/ci.yml.
 name: CI
 on:
   push:

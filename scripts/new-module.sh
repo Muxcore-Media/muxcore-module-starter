@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Generate a new MuxCore module from cookiecutter/ (or a bash fallback).
+# Generated repos use Forgejo origin CI (git.zem.systems/muxcore) and published
+# core@v0.5.8 pins — no sibling ../core checkout.
 # Usage:
 #   scripts/new-module.sh NAME=my-module [OUT=../my-module]
 #   make new-module NAME=my-module
@@ -148,10 +150,14 @@ fi
 
 export GOPRIVATE="${GOPRIVATE:-github.com/Muxcore-Media/*}"
 export GONOSUMDB="${GONOSUMDB:-github.com/Muxcore-Media/*}"
+export GIT_TERMINAL_PROMPT=0
+git config --global url."https://git.zem.systems/muxcore/".insteadOf "https://github.com/Muxcore-Media/" 2>/dev/null || true
 if command -v go >/dev/null 2>&1; then
   # go.sum ships with the template (published core pins). tidy needs private-module auth when the cache is cold.
-  (cd "$OUT" && go mod tidy) || echo "warning: go mod tidy failed (set GOPRIVATE + GitHub auth); go.sum is already present" >&2
+  (cd "$OUT" && go mod tidy) || echo "warning: go mod tidy failed (set GOPRIVATE + Forgejo/GitHub auth); go.sum is already present" >&2
 fi
 
 echo "Created module at $OUT"
 echo "Next: cd $OUT && make build && make test"
+echo "Push to Forgejo: git.zem.systems/muxcore/${NAME}"
+echo "Private modules: export GOPRIVATE=github.com/Muxcore-Media/* and git config url rewrite to git.zem.systems/muxcore"

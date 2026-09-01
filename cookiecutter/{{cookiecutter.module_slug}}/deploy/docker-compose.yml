@@ -14,7 +14,7 @@ services:
       retries: 10
       start_period: 5s
 
-  your-module:
+  {{ cookiecutter.module_slug }}:
     build:
       context: ..
       dockerfile: Dockerfile
@@ -22,7 +22,7 @@ services:
       MUXCORE_GRPC_ADDR: core:9090
       MUXCORE_INSECURE_DISABLE_TLS: "true"
       MUXCORE_LOG_LEVEL: debug
-      MUXCORE_MODULE_ID: your-module
+      MUXCORE_MODULE_ID: {{ cookiecutter.module_slug }}
     depends_on:
       core:
         condition: service_healthy

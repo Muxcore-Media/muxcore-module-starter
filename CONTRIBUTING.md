@@ -1,9 +1,9 @@
-# Contributing to Your Module
+# Contributing to muxcore-module-starter
 
 ## Starting from the starter
 
 ```bash
-git clone https://github.com/Muxcore-Media/muxcore-module-starter.git
+git clone https://git.zem.systems/muxcore/muxcore-module-starter.git
 cd muxcore-module-starter
 make new-module NAME=your-module
 # or: ./scripts/new-module.sh NAME=your-module
@@ -15,35 +15,42 @@ make new-module NAME=your-module
 
 - Go 1.26.x
 - golangci-lint (optional but recommended)
-- `GOPRIVATE=github.com/Muxcore-Media/*` (and GitHub auth) for private core modules
+- Private module fetch:
+
+```bash
+export GOPRIVATE='github.com/Muxcore-Media/*'
+export GONOSUMDB='github.com/Muxcore-Media/*'
+git config --global url."ssh://forgejo@git.zem.systems:2222/muxcore/".insteadOf "https://github.com/Muxcore-Media/"
+```
 
 ### Clone and build
 
 ```bash
-git clone https://github.com/yourorg/your-module.git
-cd your-module
+git clone https://git.zem.systems/muxcore/muxcore-module-starter.git
+cd muxcore-module-starter
 make build
+make test
 ```
 
 ### Run against a local muxcored
 
 ```bash
-# Terminal 1: start core in dev mode
-cd ../core
-MUXCORE_INSECURE_DISABLE_TLS=true ./muxcored
+# Terminal 1: start core in dev mode (from a core checkout or published binary)
+MUXCORE_INSECURE_DISABLE_TLS=true muxcored
 
 # Terminal 2: start module
 make build
-MUXCORE_GRPC_ADDR=localhost:9090 ./your-module
+MUXCORE_GRPC_ADDR=localhost:9090 MUXCORE_INSECURE_DISABLE_TLS=true ./your-module
 ```
 
 ## Running Tests
 
 ```bash
 make test
+./scripts/check-cookiecutter.sh
 ```
 
-Tests must not depend on a running muxcored instance. Use mocks where needed.
+Tests must not depend on a running muxcored instance.
 
 ## Linting
 
@@ -74,7 +81,7 @@ refactor/<short-description>
 1. Branch from `main`.
 2. Make your changes with tests.
 3. Run `make ci` locally — it must pass.
-4. Open a PR against `main`.
+4. Open a PR against `main` on Forgejo (`git.zem.systems/muxcore/muxcore-module-starter`).
 5. Squash-merge preferred.
 
 ## Security Vulnerabilities

@@ -1,3 +1,3 @@
 # Remaining work
 
-Product checklist lives in the MuxCore workspace `TASKS.md` after you publish this module. This scaffold intentionally has no placeholder Feature X checklist.
+Track MuxCore-wide work in the workspace [`MASTER-ROADMAP.md`](https://github.com/Muxcore-Media/MuxCore/blob/main/MASTER-ROADMAP.md). This scaffold intentionally has no placeholder feature checklist.
