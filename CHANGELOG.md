@@ -6,7 +6,8 @@
 
 - `make new-module NAME=…` / `scripts/new-module.sh` (cookiecutter or bash fallback)
 - Forgejo origin CI (`runs-on: native`, `git.zem.systems/muxcore` module rewrite)
-- Cookiecutter emits `.golangci.yml`, `AGENTS.md`, and `deploy/` samples
+- Cookiecutter emits `.golangci.yml` and `deploy/` samples
+- Agent notes live in umbrella `docs/agents/` (generated modules do not ship `AGENTS.md`)
 
 ### Changed
 
