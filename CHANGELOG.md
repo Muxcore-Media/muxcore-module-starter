@@ -1,6 +1,10 @@
 # Changelog
 
-## [Unreleased]
+## [0.1.2] - 2026-10-05
+
+
+### Changed
+- Pin release train train-2026.10.1: core v0.6.7 (go.mod, cookiecutter template, compose default image tag, `minCoreVersion` 0.6.7).
 
 ## [0.1.1] - 2026-10-05
 

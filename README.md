@@ -6,7 +6,7 @@
 
 **Cookiecutter template and reference scaffold for MuxCore sidecar modules.**
 
-Pins published `core@v0.6.0` (no local `replace`, no sibling checkout). CI runs on GitHub Actions; private modules are fetched via `gh auth setup-git` with `GOPRIVATE=github.com/Muxcore-Media/*`.
+Pins published `core@v0.6.7` (no local `replace`, no sibling checkout). CI runs on GitHub Actions; private modules are fetched via `gh auth setup-git` with `GOPRIVATE=github.com/Muxcore-Media/*`.
 
 ---
 

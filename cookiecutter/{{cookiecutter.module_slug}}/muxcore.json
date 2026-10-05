@@ -6,5 +6,5 @@
   "roles": ["{{ cookiecutter.role }}"],
   "capabilities": ["{{ cookiecutter.capability }}"],
   "contracts": [],
-  "minCoreVersion": "0.5.8"
+  "minCoreVersion": "0.6.7"
 }

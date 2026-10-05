@@ -1,10 +1,14 @@
 {
   "name": "Your Module",
   "description": "Describe what your module does.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "You",
-  "roles": ["your-role"],
-  "capabilities": ["your.capability"],
+  "roles": [
+    "your-role"
+  ],
+  "capabilities": [
+    "your.capability"
+  ],
   "contracts": [],
-  "minCoreVersion": "0.5.8"
+  "minCoreVersion": "0.6.7"
 }

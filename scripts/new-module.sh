@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Generate a new MuxCore module from cookiecutter/ (or a bash fallback).
 # Generated repos use GitHub Actions CI and published
-# core@v0.5.8 pins — no sibling ../core checkout.
+# core@v0.6.7 pins — no sibling ../core checkout.
 # Usage:
 #   scripts/new-module.sh NAME=my-module [OUT=../my-module]
 #   make new-module NAME=my-module
