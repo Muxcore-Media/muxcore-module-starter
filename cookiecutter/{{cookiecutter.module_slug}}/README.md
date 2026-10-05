@@ -6,7 +6,7 @@
 
 {{ cookiecutter.description }}
 
-MuxCore sidecar module. Pins published `core@v0.6.7`. CI runs on GitHub Actions — no sibling `core` checkout.
+MuxCore sidecar module. Pins published `core@v0.6.13`. CI runs on GitHub Actions — no sibling `core` checkout.
 
 ## Clone
 

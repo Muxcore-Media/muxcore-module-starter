@@ -5,7 +5,7 @@ import (
 	manifest "github.com/yourorg/your-module"
 )
 
-const MinCoreVersion = "0.6.7"
+const MinCoreVersion = "0.6.13"
 
 // Version is an optional build-time override (-ldflags -X main.version=...).
 // Leave it empty or "dev" to report the version from muxcore.json (ADR-0021).

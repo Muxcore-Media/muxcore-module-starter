@@ -1,6 +1,6 @@
 services:
   core:
-    image: ${MUXCORE_REGISTRY:-localhost:5000/muxcore}/muxcored:${MUXCORE_IMAGE_TAG:-v0.6.7}
+    image: ${MUXCORE_REGISTRY:-localhost:5000/muxcore}/muxcored:${MUXCORE_IMAGE_TAG:-v0.6.13}
     ports:
       - "8080:8080"
       - "9090:9090"

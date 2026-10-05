@@ -2,4 +2,4 @@
 
 | Module Version | Core Version | Status |
 |----------------|-------------|--------|
-| v0.1.0         | v0.6.7+     | Current |
+| v0.1.0         | v0.6.13+     | Current |
