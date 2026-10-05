@@ -1,7 +1,7 @@
 {
   "name": "Your Module",
   "description": "Describe what your module does.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": "You",
   "roles": [
     "your-role"
@@ -10,5 +10,5 @@
     "your.capability"
   ],
   "contracts": [],
-  "minCoreVersion": "0.6.13"
+  "minCoreVersion": "0.6.15"
 }

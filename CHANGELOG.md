@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.6] - 2026-10-05
+
+
+### Changed
+- Release train train-2026.10.3 (core v0.6.15): core v0.6.15 in go.mod/go.sum (repo and cookiecutter template), `minCoreVersion` 0.6.15, compose default image tag, README/COMPATIBILITY.
+
 ## [0.1.5] - 2026-10-05
 
 ### Changed

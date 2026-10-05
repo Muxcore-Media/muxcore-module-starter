@@ -5,7 +5,7 @@ import (
 	manifest "github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.module_slug }}"
 )
 
-const MinCoreVersion = "0.6.13"
+const MinCoreVersion = "0.6.15"
 
 // Version is an optional build-time override (-ldflags -X main.version=...).
 // Leave it empty or "dev" to report the version from muxcore.json (ADR-0021).
