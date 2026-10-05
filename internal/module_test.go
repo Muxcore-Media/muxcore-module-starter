@@ -47,6 +47,9 @@ func TestModuleInfo(t *testing.T) {
 	if info.Version == "" {
 		t.Error("module version must not be empty")
 	}
+	if info.Version != manifest.Version {
+		t.Fatalf("Version = %q, muxcore.json = %q (ADR-0021)", info.Version, manifest.Version)
+	}
 	if info.ID != "your-module" {
 		t.Fatalf("ID = %q", info.ID)
 	}

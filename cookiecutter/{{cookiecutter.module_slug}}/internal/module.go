@@ -23,7 +23,7 @@ func (m *Module) Info() contracts.ModuleInfo {
 	return contracts.ModuleInfo{
 		ID:             m.id,
 		Name:           "{{ cookiecutter.module_name }}",
-		Version:        Version,
+		Version:        ReportedVersion(),
 		Roles:          []string{"{{ cookiecutter.role }}"},
 		Description:    "{{ cookiecutter.description }}",
 		Author:         "{{ cookiecutter.author }}",

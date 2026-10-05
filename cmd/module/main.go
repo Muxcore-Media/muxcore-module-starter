@@ -8,7 +8,7 @@ import (
 	"github.com/yourorg/your-module/internal"
 )
 
-var version = "0.0.0-dev"
+var version = "" // optional -ldflags override; empty reports muxcore.json (ADR-0021)
 
 func main() {
 	internal.Version = version

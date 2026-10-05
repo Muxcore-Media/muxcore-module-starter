@@ -23,7 +23,7 @@ func (m *Module) Info() contracts.ModuleInfo {
 	return contracts.ModuleInfo{
 		ID:             m.id,
 		Name:           "Your Module",
-		Version:        Version,
+		Version:        ReportedVersion(),
 		Roles:          []string{"your-role"},
 		Description:    "Describe what your module does.",
 		Author:         "You",
