@@ -1,12 +1,12 @@
 # muxcore-module-starter
 
-[![CI](https://git.zem.systems/muxcore/muxcore-module-starter/actions/workflows/ci.yml/badge.svg)](https://git.zem.systems/muxcore/muxcore-module-starter/actions)
+[![CI](https://github.com/Muxcore-Media/muxcore-module-starter/actions/workflows/ci.yml/badge.svg)](https://github.com/Muxcore-Media/muxcore-module-starter/actions)
 [![Go Version](https://img.shields.io/badge/Go-1.26-blue)](https://go.dev/)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 
 **Cookiecutter template and reference scaffold for MuxCore sidecar modules.**
 
-Pins published `core@v0.5.8` (no local `replace`, no sibling checkout). Origin CI on Forgejo (`runs-on: native`) fetches private modules via the `git.zem.systems/muxcore` rewrite.
+Pins published `core@v0.6.0` (no local `replace`, no sibling checkout). CI runs on GitHub Actions; private modules are fetched via `gh auth setup-git` with `GOPRIVATE=github.com/Muxcore-Media/*`.
 
 ---
 
@@ -27,7 +27,7 @@ Or:
 cookiecutter ./cookiecutter --no-input module_slug=my-module module_name="My Module"
 ```
 
-The generator writes a ready-to-push module (Go module path, `muxcore.json`, Makefile, Forgejo CI without a sibling `core` tree).
+The generator writes a ready-to-push module (Go module path, `muxcore.json`, Makefile, GitHub Actions CI without a sibling `core` tree).
 
 Verify the template locally:
 

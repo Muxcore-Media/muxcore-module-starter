@@ -4,7 +4,7 @@
 
 | Module Version | Core Version | Status |
 |----------------|-------------|--------|
-| v0.1.0         | v0.5.8+     | Current |
+| v0.1.0         | v0.6.0+     | Current |
 
 ## Contracts
 
